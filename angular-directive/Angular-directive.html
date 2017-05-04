@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body ng-app='myApp'>
+	<div my-directive ></div>
+	<!-- <my-directive></my-directive>
+	<div class="my-directive"></div> -->
+	<script type="text/javascript">
+		angular.module('myApp',[]).directive('myDirective',function(){
+			return {
+				restrict:'EAC',
+				replace:true,
+				template:'<a href="http://google.com">Click me to go to Google</a>'
+			};
+		});
+	</script>
+</body>
+</html>
