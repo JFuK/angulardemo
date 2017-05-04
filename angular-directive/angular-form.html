@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+	<style type="text/css">
+	input.ng-invalid{
+		border: 1px solid red;
+	}
+	input.ng-valid{
+		border:1px solid green;
+	}
+	</style>
+</head>
+<body ng-app="myApp">
+	<form name="signup_form" ng-controller="FormController" ng-submit="submitForm()" novalidate style="width:20%;margin: auto;">
+		<div ng-repeat="filed in fileds" ng-form="signup_form_input">
+			<input type="text" name="dynamic_input" ng-required="filed.isRequired" ng-model="filed.name" placeholder="{{filed.placeholder}}"></input>
+			<div ng-show="signup_form_input.dynamic_input.$dirty && signup_form_input.$invalid" style="display: inline-block; color: red;">
+				<span class="error" ng-show="signup_form_input.dynamic_input.$error.required">The filed is required</span>	
+			</div>
+		</div>
+		<button type="submit" ng-disabled="signup_form.$invalid">Submit All</button>
+	</form>
+	<script type="text/javascript">
+		angular.module('myApp',[]).controller('FormController',function($scope){
+			$scope.fileds=[
+			{placeholder:'Username',isRequired:true},
+			{placeholder:'Password',isRequired:true},
+			{placeholder:'Email(optional)',isRequired:false}
+			];
+			$scope.submitForm=function(){
+				alert("it works!");
+			}
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+	<style type="text/css">
+	</style>
+</head>
+<body ng-app="myApp">
+<div ng-controller="CountreController">
+	<button ng-click="count=count+1" ng-init="count=0">Increment</button>
+	<p>count:{{count}}</p>
+	<button ng-click="decrement()">Decrement</button>
+	
+</div>
+
+<div ng-controller="CityController">
+<select ng-model="city" ng-options="city.name for city in cities">
+<option value="">请选择</option>
+</select>
+Best City: {{ city.name }}
+</div>
+
+<div>
+	<form ng-submit="submit()" ng-controller="FormController">Enter text and hit enter:
+		<input type="text" ng-model="person.name" name="person.name" />
+		<input type="submit" name="person.name" value="Submit" />
+		<!-- <code>people={{people}}</code> -->
+		<table ng-repeat="(index, object) in people" style="border: 1px solid red;width: 200px;">
+			<tr>
+				<td>{{ object.name }}</td>
+			</tr>
+		</table>
+	</form>
+</div>
+	<script type="text/javascript">
+		angular.module('myApp',[])
+		.controller('CountreController',function($scope){
+			$scope.decrement=function(){
+				if($scope.count>0){
+					$scope.count=$scope.count-1;
+				}
+			}
+		})
+		.controller('CityController',function($scope){
+			$scope.cities=[
+			{name:'北京'},
+			{name:'上海'},
+			{name:'杭州'},
+			{name:'南京'},
+			{name:'郑州'},
+			{name:'武汉'},
+			]
+		})
+		.controller('FormController',function($scope){
+			$scope.person={
+				name:null
+			};
+			$scope.people=[];
+			$scope.submit=function(){
+				if($scope.person.name){
+					$scope.people.push({name:$scope.person.name});
+					$scope.person.name='';
+				}
+			};
+		})
+	</script>
+</body>
+</html>

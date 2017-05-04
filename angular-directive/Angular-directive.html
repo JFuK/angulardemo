@@ -6,15 +6,19 @@
 	<script type="text/javascript" src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
 </head>
 <body ng-app='myApp'>
-	<div my-directive ></div>
+	<div my-directive my-url="http://google.com" my-link-text="Click me to go to Google"></div>
 	<!-- <my-directive></my-directive>
 	<div class="my-directive"></div> -->
 	<script type="text/javascript">
 		angular.module('myApp',[]).directive('myDirective',function(){
 			return {
-				restrict:'EAC',
+				restrict:'A',
 				replace:true,
-				template:'<a href="http://google.com">Click me to go to Google</a>'
+				scope:{
+					myUrl:'@',//绑定策略,默认情况下绑定DOM中对应的my-url属性；若@someAttr则绑定DOM中属性名为some-attr的属性
+					myLinkText:'@'//绑定策略
+				},
+				template:'<a href="{{myUrl}}">'+'{{myLinkText}}</a>'
 			};
 		});
 	</script>

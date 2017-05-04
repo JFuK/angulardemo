@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+	<div ng-controller="EquationController">
+		<input type="text" ng-model="equation.x" ng-change="change()"></input>
+		<code>{{equation.output}}</code>
+	</div>
+	<script type="text/javascript">
+		angular.module('myApp',[]).controller('EquationController',function($scope){
+			$scope.equation={};
+			$scope.change=function(){
+				$scope.equation.output=parseInt($scope.equation.x)+2;
+			};
+		});
+	</script>
+</body>
+</html>

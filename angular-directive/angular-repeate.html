@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.odd{
+			background-color: gray;
+		}
+		.even{
+			background-color: white;
+		}
+	</style>
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body ng-app='myApp'>
+	<table ng-controller='PeopleController' style="width: 300px;text-align: center;border: 1px solid green;margin: auto;">
+		<tr style="background-color:black;color: white;">
+			<td><b>姓名</b></td>
+			<td><b>居住地</b></td>
+			<td><b>工作</b></td>
+		</tr>
+		<tr ng-repeat='person in people' ng-class='{even:!$even,odd:!$odd}'>
+			<td>{{person.name}}</td>
+			<td>{{person.city}}</td>
+			<td>{{person.job}}</td>
+		</tr>
+	</table>
+	<!-- <p ng-init='greeting="Hello World"'>{{greeting}}</p>
+	<p ng-init='greeting="Hello World"' ng-bind="greeting"></p> -->
+	<script type="text/javascript">
+		angular.module('myApp',[]).controller('PeopleController',function($scope){
+			$scope.people=[
+			{name:'赵',city:'Dalian',job:'Teacher'},
+			{name:'钱',city:'Beijing',job:'Student'},
+			{name:'孙',city:'Nanjing',job:'Student'},
+			{name:'李',city:'Nanjing',job:'Student'},
+			{name:'周',city:'Nanjing',job:'Student'},
+			{name:'吴',city:'Nanjing',job:'Student'},
+			{name:'郑',city:'Nanjing',job:'Student'},
+			{name:'王',city:'Nanjing',job:'Student'},
+			{name:'姜',city:'Nanjing',job:'Student'},
+			{name:'田',city:'Nanjing',job:'Student'},
+			];
+		})
+	</script>
+</body>
+</html>
