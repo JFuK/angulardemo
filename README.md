@@ -1,5 +1,5 @@
 # angular-demo
-1. <a href='http://jiangk1214.win/angular-demo/angular-directive/Angular-directive.html'>Angular-directive</a>
+1. <a href='http://jiangk1214.win/angulardemo/angular-directive/Angular-directive.html'>Angular-directive</a>
 2. <a href='http://jiangk1214.win/WEBDemo/前端demo/game.html'>别踩白块</a>
 3. <a href='http://jiangk1214.win/WEBDemo/前端demo/网页计算器.html'>网页计算器</a>
 4. <a href='http://jiangk1214.win/WEBDemo/前端demo/黑客帝国矩形阵.html'>Canvas绘制黑客帝国矩形阵</a>
